@@ -1,7 +1,7 @@
 #importando o flask
 from flask import *
 
-convidados = ['jose','maria','pedro','ana','thais','carla','joaquim']
+usuarios = []
 
 #criando o servidor flask (back-end)
 app = Flask(__name__)
@@ -9,6 +9,16 @@ app = Flask(__name__)
 @app.route('/')
 def pageprincipal():
     return render_template('thaynaraifpb.html')
+
+
+@app.route('/inserir')
+def inserir_user():
+    login = request.form.get('')
+
+@app.route('/login')
+def login():
+    login = request.form.get('senha')
+    senha = request.form.get('login')
 
 @app.route('/verificarconvite', methods =['POST'])
 def verificar_convite():
