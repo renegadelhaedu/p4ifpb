@@ -11,7 +11,7 @@
     <div class= "foto">
     <img src="{{ url_for('static', filename='imagens/ifpbsousa.png') }}" width="100%" height="300px">
 
-      <h1>SUBSEQUENTE P3</h1>
+      <h1>SUBSEQUENTE P4</h1>
       </div>
       <div class= "exemplo">
       <h2> BEM-VINDO! <b>
@@ -36,21 +36,39 @@
          </div>
 
       <div class="novo">
-        <form action="/inseriraluno" method="post">
-            <a><b>Cadastrar Aluno</b></a>
-            <hr>
-            <label>Login</label>
-            <input type="number">
-            <br>
-            <label>Senha</label>
-            <input type="password" id="senha1" name="senha1">
-            <br>
-            <label>Repetir senhaLogin</label>
-            <input type="password" id="senha2" name="senha2">
-            <br>
-            <button onclick="entrar()" type="submit"> Cadastrar </button>
-            <p id="mensagem"> </p>
-        </form>
+          <div>
+              <form action="/inseriraluno" method="post">
+                <a><b>Cadastrar Aluno</b></a>
+                <hr>
+                <label>Login</label>
+                <input type="text" name="login">
+                <br>
+                <label>Senha</label>
+                <input type="password" id="senha1" name="senha1">
+                <br>
+                <label>Repetir senhaLogin</label>
+                <input type="password" id="senha2" name="senha2">
+                <br>
+                <button onclick="entrar()" type="submit"> Cadastrar </button>
+                <p id="mensagem"> </p>
+            </form>
+          </div>
+          <div class="login">
+              <form action="/login" method="post">
+                    <a><b>Fazer Login Aluno</b></a>
+                    <hr>
+                    <label>Digite o login</label>
+                    <input type="text" name="login">
+                    <br>
+                    <label>Digite a Senha</label>
+                    <input type="password" name="senha">
+                    <br>
+                    <button type="submit">Enviar</button>
+
+              </form>
+              <p>{{msglogin}} </p>
+          </div>
+
       </div>
       </div>
 
