@@ -12,9 +12,16 @@ app = Flask(__name__)
 def pageprincipal():
     return render_template('homeifpb.html')
 
-@app.route('/a')
+@app.route('/inserirnovadisciplina', methods=['POST'])
+def cadastrar_disciplina():
+    nome_disc = request.form.get('nomedisciplina')
+    print('a disciplina foi: ', nome_disc)
+    return '<h1>OK AJSHDKJASHDJHASHD</h1>'
+
+
+@app.route('/adicionardisciplina')
 def aaa():
-    return '<h1>teste ok</h1>'
+    return render_template('adicionardisciplina.html')
 
 @app.route('/inseriraluno', methods=['POST'])
 def inserir_user():

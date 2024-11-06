@@ -84,3 +84,17 @@ body{
     background-color: rgb(11, 66, 32);
     margin-top: 50px;
 }
+
+.button-link{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-link:hover{
+    background-color: green;
+}
