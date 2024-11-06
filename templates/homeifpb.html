@@ -40,6 +40,9 @@
               <form action="/inseriraluno" method="post">
                 <a><b>Cadastrar Aluno</b></a>
                 <hr>
+                  <label>Nome</label>
+                <input type="text" name="nome">
+                  <br>
                 <label>Login</label>
                 <input type="text" name="login">
                 <br>
@@ -50,7 +53,7 @@
                 <input type="password" id="senha2" name="senha2">
                 <br>
                 <button onclick="entrar()" type="submit"> Cadastrar </button>
-                <p id="mensagem"> </p>
+                <p id="mensagem">{{mensagem}} </p>
             </form>
           </div>
           <div class="login">
