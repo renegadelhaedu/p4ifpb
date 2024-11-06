@@ -16,7 +16,8 @@ def pageprincipal():
 def cadastrar_disciplina():
     nome_disc = request.form.get('nomedisciplina')
     print('a disciplina foi: ', nome_disc)
-    return '<h1>OK AJSHDKJASHDJHASHD</h1>'
+    return '<h1>Disciplina inserida com Sucesso!</h1>'
+    #tem que fazer uma página html para exibir o retorno
 
 
 @app.route('/adicionardisciplina')
