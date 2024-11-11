@@ -1,5 +1,6 @@
 #importando o flask
 from flask import *
+import dao
 
 usuarios = [['rene','1234','rene sousa'],
             ['maria','6543', 'maria do carmo'],
@@ -39,18 +40,15 @@ def inserir_user():
 def login():
     login = request.form.get('login')
     senha = request.form.get('senha')
-    logado = False
 
-    for user in usuarios:
-        if login == user[0] and senha == user[1]:
-            logado = True
-            break
+    resultado = dao.verificarlogin(login, senha, dao.conectardb())
 
-    if logado:
+    if len(resultado) > 0:
         return render_template('homepagealuno.html', user=login)
     else:
-        msg='Senha ou login incorretos'
+        msg = 'Senha ou login incorretos'
         return render_template('homeifpb.html', msglogin=msg)
+
 
 #iniciando/rodando o servidor
 app.run(debug=True)
