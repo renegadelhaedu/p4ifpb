@@ -42,9 +42,9 @@ def login():
     senha = request.form.get('senha')
 
     resultado = dao.verificarlogin(login, senha, dao.conectardb())
-
+    print(resultado)
     if len(resultado) > 0:
-        return render_template('homepagealuno.html', user=login)
+        return render_template('homepagealuno.html', user=resultado[0][1])
     else:
         msg = 'Senha ou login incorretos'
         return render_template('homeifpb.html', msglogin=msg)

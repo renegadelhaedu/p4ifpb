@@ -16,7 +16,7 @@ def conectardb():
 def verificarlogin(matricula, senha, conexao):
 
     cur = conexao.cursor()
-    cur.execute(f"SELECT * FROM usuarios WHERE matricula = '{matricula}' AND senha = '{senha}'")
+    cur.execute(f"SELECT matricula, nome FROM usuarios WHERE matricula = '{matricula}' AND senha = '{senha}'")
     recset = cur.fetchall()
     cur.close()
     conexao.close()
