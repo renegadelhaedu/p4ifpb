@@ -27,14 +27,17 @@ def aaa():
 
 @app.route('/inseriraluno', methods=['POST'])
 def inserir_user():
-    login = request.form.get('login')
+    matricula = request.form.get('login')
     senha = request.form.get('senha1')
     nome = request.form.get('nome')
 
     #variável na memória ram
-    usuarios.append([login, senha, nome])
+    #usuarios.append([login, senha, nome])
 
-    msg = 'Usuário cadastrado com sucesso'
+    if dao.inserirusuario(matricula, nome, senha):
+        msg = 'Usuário cadastrado com sucesso'
+    else:
+        msg = 'Problemas ao inserir usuário'
     return render_template('homeifpb.html', mensagem=msg)
 
 

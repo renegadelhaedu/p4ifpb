@@ -11,7 +11,6 @@ def conectardb():
     )
     return con
 
-conectardb()
 
 #verifica no banco de dados se existe um usuário com matrícula e a senha
 #informadas por parâmetro
@@ -24,7 +23,6 @@ def verificarlogin(matricula, senha, conexao):
     conexao.close()
 
     return recset
-
 
 def insert_comentario(login, comentario, conexao):
 
@@ -45,14 +43,15 @@ def insert_comentario(login, comentario, conexao):
     conexao.close()
     return exito
 
-def inserirusuario(login, senha):
+def inserirusuario(matricula, nome, senha):
+    #método para conectar o banco de dados, retornando a conexao com o BD
     conexao = conectardb()
     cur = conexao.cursor()
     exito = False
     try:
-        sql = f"INSERT INTO usuario (login, senha) VALUES ('{login}', '{senha}')"
+        sql = f"INSERT INTO usuarios (matricula, nome, senha) VALUES ('{matricula}', '{nome}', '{senha}')"
         cur.execute(sql)
-    except psycopg2.IntegrityError:
+    except psycopg2.Error:
         conexao.rollback()
         exito = False
     else:
