@@ -11,6 +11,8 @@ def conectardb():
     )
     return con
 
+conectardb()
+
 #verifica no banco de dados se existe um usuário com matrícula e a senha
 #informadas por parâmetro
 def verificarlogin(matricula, senha, conexao):

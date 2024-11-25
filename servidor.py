@@ -31,7 +31,9 @@ def inserir_user():
     senha = request.form.get('senha1')
     nome = request.form.get('nome')
 
+    #variável na memória ram
     usuarios.append([login, senha, nome])
+
     msg = 'Usuário cadastrado com sucesso'
     return render_template('homeifpb.html', mensagem=msg)
 
