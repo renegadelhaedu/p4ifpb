@@ -2,10 +2,6 @@
 from flask import *
 import dao
 
-usuarios = [['rene','1234','rene sousa'],
-            ['maria','6543', 'maria do carmo'],
-            ['evellyn','teste','Evellyn Melo']]
-
 #criando o servidor flask (back-end)
 app = Flask(__name__)
 
@@ -31,9 +27,6 @@ def inserir_user():
     senha = request.form.get('senha1')
     nome = request.form.get('nome')
 
-    #variável na memória ram
-    #usuarios.append([login, senha, nome])
-
     if dao.inserirusuario(matricula, nome, senha):
         msg = 'Usuário cadastrado com sucesso'
     else:
@@ -46,8 +39,8 @@ def login():
     login = request.form.get('login')
     senha = request.form.get('senha')
 
-    resultado = dao.verificarlogin(login, senha, dao.conectardb())
-    print(resultado)
+    resultado = dao.verificarlogin(login, senha)
+
     if len(resultado) > 0:
         return render_template('homepagealuno.html', user=resultado[0][1])
     else:

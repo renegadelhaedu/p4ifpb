@@ -14,9 +14,9 @@ def conectardb():
 
 #verifica no banco de dados se existe um usuário com matrícula e a senha
 #informadas por parâmetro
-def verificarlogin(matricula, senha, conexao):
-
-    cur = conexao.cursor()
+def verificarlogin(matricula, senha):
+    conexao = conectardb()
+    cur = conexao.cursor()#aponta um cursor para trabalhar com as info do BD
     cur.execute(f"SELECT matricula, nome FROM usuarios WHERE matricula = '{matricula}' AND senha = '{senha}'")
     recset = cur.fetchall()
     cur.close()
