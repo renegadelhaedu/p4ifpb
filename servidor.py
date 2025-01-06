@@ -4,7 +4,7 @@ import dao
 
 #criando o servidor flask (back-end)
 app = Flask(__name__)
-app.secret_key = 'k23jh4kj23h4'
+app.secret_key = 'ren876876423@$42'
 
 @app.route('/')
 def pageprincipal():
@@ -22,10 +22,18 @@ def cadastrar_disciplina():
     return '<h1>Disciplina inserida com Sucesso!</h1>'
     #tem que fazer uma página html para exibir o retorno
 
+@app.route('/sair')
+def fazer_logout():
+    session.pop('login')
+    return render_template('homeifpb.html')
+
 
 @app.route('/adicionardisciplina')
 def aaa():
-    return render_template('adicionardisciplina.html')
+    if 'login' in session:
+        return render_template('adicionardisciplina.html')
+    else:
+        return render_template('homeifpb.html')
 
 @app.route('/inseriraluno', methods=['POST'])
 def inserir_user():
@@ -49,7 +57,7 @@ def login():
 
     if len(resultado) > 0:
         session['login'] = login
-        session['carrinho'] = []
+
         return render_template('homepagealuno.html', user=resultado[0][1])
     else:
         msg = 'Senha ou login incorretos'
